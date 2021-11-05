@@ -1,0 +1,10 @@
+@media (max-width: 447px) {
+  .navbar-brand {
+    width: 100%;
+    text-align: center;
+  }
+  .navbar h1 {
+    margin: 8px 0px;
+    padding: 6px 12px;
+  }
+}

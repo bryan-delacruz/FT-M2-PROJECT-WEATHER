@@ -1,0 +1,9 @@
+.cards-justify {
+  justify-content: space-between;
+}
+
+@media (max-width: 767px) {
+  .cards-justify {
+    justify-content: space-around;
+  }
+}

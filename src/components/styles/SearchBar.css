@@ -1,0 +1,11 @@
+@media (max-width: 575px) {
+  .btn {
+    width: 100%;
+  }
+}
+
+@media (max-width: 447px) {
+  .form-inline {
+    width: 100%;
+  }
+}

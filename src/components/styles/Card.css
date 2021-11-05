@@ -1,0 +1,16 @@
+.card {
+  width: 18rem;
+}
+
+.card-container-title {
+  display: flex;
+  justify-content: space-between;
+}
+
+.card-container-title h5 {
+  margin-bottom: 0rem;
+}
+
+.card-container-text {
+  display: flex;
+}
