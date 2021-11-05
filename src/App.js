@@ -1,7 +1,11 @@
 import { useState } from "react";
 
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+
 import Nav from "./components/Nav";
 import Cards from "./components/Cards";
+import About from "./components/About";
+import Ciudad from "./components/Ciudad";
 
 function App() {
   const [cities, setCities] = useState([]);
@@ -60,13 +64,16 @@ function App() {
   };
 
   return (
-    <div className="App">
+    <Router>
       <Nav onSearch={onSearch} />
       {alert()}
       <hr />
-      {}
-      <Cards cities={cities} onClose={onClose} />
-    </div>
+      <Routes>
+        <Route path="/" element={<Cards cities={cities} onClose={onClose} />} />
+        <Route path="/about" element={<About />} />
+        <Route path="/ciudad/:id" element={<Ciudad cities={cities} />} />
+      </Routes>
+    </Router>
   );
 }
 

@@ -1,14 +1,19 @@
 import "./styles/Card.css";
 
-export default function Card({ name, min, max, img, onClose }) {
+import { Link } from "react-router-dom";
+
+export default function Card({ name, min, max, img, id, onClose }) {
   // acá va tu código
   return (
     <>
       <div className="card border-dark mb-3">
         <div className="card-header card-container-title">
-          <h5>{name}</h5>
+          <Link to={`/ciudad/${id}`}>
+            <h5>{name}</h5>
+          </Link>
           <button
-            type="button" className="close text-primary"
+            type="button"
+            className="close text-primary"
             onClick={onClose}
           >
             &times;

@@ -17,6 +17,7 @@ export default function Cards(props) {
               min={e.min}
               max={e.max}
               img={e.img}
+              id={e.id}
               onClose={() => props.onClose(e.id)}
             />
           ))}
