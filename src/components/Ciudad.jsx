@@ -3,15 +3,18 @@ import { useParams } from "react-router";
 
 export default function Ciudad({ cities }) {
   const [city, setCity] = useState({});
+
   const { id } = useParams();
 
   useEffect(() => {
-    // console.log(cities);
-    setCity(cities.filter((c) => c.id === parseInt(id))[0]);
-  }, [id, cities]);
-  //   console.log(cities);
-  console.log(city);
-  return (
+    cities.find((e) => e.id === parseInt(id))
+      ? setCity(cities.filter((c) => c.id === parseInt(id))[0])
+      : setCity({});
+  }, [id,cities]);
+
+  return (!city.id) ? (
+    <div>No se encontró la ciudad</div>
+  ) : (
     <div>
       <div className="container">
         <h2>{city.name}</h2>
@@ -25,5 +28,5 @@ export default function Ciudad({ cities }) {
         </div>
       </div>
     </div>
-  );
+  )
 }
