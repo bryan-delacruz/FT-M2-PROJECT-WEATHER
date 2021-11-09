@@ -2,6 +2,8 @@ import { useState } from "react";
 
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
+import Alert from "./components/Alert";
+
 import Nav from "./components/Nav";
 import Cards from "./components/Cards";
 import About from "./components/About";
@@ -44,34 +46,30 @@ function App() {
       });
   }
 
-  function onClose(id) {
+  const onClose = (id) => {
     setCities((oldCities) => oldCities.filter((c) => c.id !== id));
-  }
-
-  const alert = () => {
-    return !ciudadEncontrada ? (
-      <div className="alert alert-info alert-dismissible fade show mt-3">
-        <strong>La ciudad no fue encontrada</strong>
-        <button type="button" className="close" onClick={() => handleAlert()}>
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-    ) : null;
   };
 
   const handleAlert = () => {
     setCiudadEncontrada(true);
   };
 
+  const onFilter = (id) => {
+    return cities.filter((c) => c.id === parseInt(id))[0];
+  };
+
   return (
     <Router>
       <Nav onSearch={onSearch} />
-      {alert()}
+      <Alert ciudadEncontrada={ciudadEncontrada} handleAlert={handleAlert} />
       <hr />
       <Routes>
         <Route path="/" element={<Cards cities={cities} onClose={onClose} />} />
         <Route path="/about" exact element={<About />} />
-        <Route path="/ciudad/:id" element={<Ciudad cities={cities} />} />
+        <Route
+          path="/ciudad/:id"
+          element={<Ciudad onFilter={onFilter} city={cities} />}
+        />
       </Routes>
     </Router>
   );

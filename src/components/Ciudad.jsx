@@ -1,23 +1,14 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import { useParams } from "react-router";
 
-export default function Ciudad({ cities }) {
-  const [city, setCity] = useState({});
+export default function Ciudad({ onFilter }) {
+  // const [city, setCity] = useState({});
 
   const { id } = useParams();
 
-  // console.log("ciudad antes useEffect", city);
+  let city = onFilter(id);
 
-  useEffect(() => {
-    // console.log("usefecct");
-    cities.find((e) => e.id === parseInt(id))
-      ? setCity(cities.filter((c) => c.id === parseInt(id))[0])
-      : setCity({});
-  }, [id, cities]);
-
-  // console.log("ciudad desp useEffect", city);
-
-  return !city.id ? (
+  return !city ? (
     <div>No se encontró la ciudad</div>
   ) : (
     <div>
