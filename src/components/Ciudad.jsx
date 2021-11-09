@@ -6,19 +6,24 @@ export default function Ciudad({ cities }) {
 
   const { id } = useParams();
 
+  // console.log("ciudad antes useEffect", city);
+
   useEffect(() => {
+    // console.log("usefecct");
     cities.find((e) => e.id === parseInt(id))
       ? setCity(cities.filter((c) => c.id === parseInt(id))[0])
       : setCity({});
-  }, [id,cities]);
+  }, [id, cities]);
 
-  return (!city.id) ? (
+  // console.log("ciudad desp useEffect", city);
+
+  return !city.id ? (
     <div>No se encontró la ciudad</div>
   ) : (
     <div>
       <div className="container">
         <h2>{city.name}</h2>
-        <div className="info">
+        <div>
           <div>Temperatura: {city.temp} ºC</div>
           <div>Clima: {city.weather}</div>
           <div>Viento: {city.wind} km/h</div>
@@ -28,5 +33,5 @@ export default function Ciudad({ cities }) {
         </div>
       </div>
     </div>
-  )
+  );
 }

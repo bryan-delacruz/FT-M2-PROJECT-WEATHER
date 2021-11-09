@@ -11,12 +11,12 @@ const Nav = ({ onSearch }) => {
         <div>
           <h1 className="navbar-brand">e-Tiempo || ©bryan-delacruz</h1>
           <NavLink to="/">
-            <button type="button" class="btn btn-dark mr-2">
+            <button type="button" className="btn btn-dark mr-2">
               Inicio
             </button>
           </NavLink>
           <NavLink to="/about">
-            <button type="button" class="btn btn-dark">
+            <button type="button" className="btn btn-dark">
               About
             </button>
           </NavLink>

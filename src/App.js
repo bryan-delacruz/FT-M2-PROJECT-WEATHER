@@ -38,7 +38,7 @@ function App() {
           setCiudadEncontrada(true);
         } else {
           setCiudadEncontrada(false);
-          console.log(ciudadEncontrada);
+          // console.log(ciudadEncontrada);
           // alert("Ciudad no encontrada");
         }
       });
@@ -50,9 +50,9 @@ function App() {
 
   const alert = () => {
     return !ciudadEncontrada ? (
-      <div class="alert alert-info alert-dismissible fade show mt-3">
+      <div className="alert alert-info alert-dismissible fade show mt-3">
         <strong>La ciudad no fue encontrada</strong>
-        <button type="button" class="close" onClick={() => handleAlert()}>
+        <button type="button" className="close" onClick={() => handleAlert()}>
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
@@ -70,7 +70,7 @@ function App() {
       <hr />
       <Routes>
         <Route path="/" element={<Cards cities={cities} onClose={onClose} />} />
-        <Route path="/about" element={<About />} />
+        <Route path="/about" exact element={<About />} />
         <Route path="/ciudad/:id" element={<Ciudad cities={cities} />} />
       </Routes>
     </Router>
