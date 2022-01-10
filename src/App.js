@@ -8,6 +8,7 @@ import Nav from "./components/Nav";
 import Cards from "./components/Cards";
 import About from "./components/About";
 import Ciudad from "./components/Ciudad";
+import axios from "axios";
 
 function App() {
   const [cities, setCities] = useState([]);
@@ -17,11 +18,13 @@ function App() {
   const apiKey = "70768fa2a74f80d07699f5445c8f3d52";
 
   function onSearch(ciudad) {
-    fetch(
-      `http://api.openweathermap.org/data/2.5/weather?q=${ciudad}&appid=${apiKey}&units=metric`
-    )
-      .then((r) => r.json())
-      .then((recurso) => {
+    axios
+      .get(
+        `http://api.openweathermap.org/data/2.5/weather?q=${ciudad}&appid=${apiKey}&units=metric`
+      )
+      // .then((r) => r.json())
+      .then((json) => {
+        let recurso = json.data;
         if (recurso.main !== undefined) {
           const ciudad = {
             min: Math.round(recurso.main.temp_min),
