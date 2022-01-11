@@ -25,6 +25,7 @@ function App() {
       // .then((r) => r.json())
       .then((json) => {
         let recurso = json.data;
+        // console.log(recurso);
         if (recurso.main !== undefined) {
           const ciudad = {
             min: Math.round(recurso.main.temp_min),
@@ -43,9 +44,10 @@ function App() {
           setCiudadEncontrada(true);
         } else {
           setCiudadEncontrada(false);
-          // console.log(ciudadEncontrada);
-          // alert("Ciudad no encontrada");
         }
+      })
+      .catch((e) => {
+        setCiudadEncontrada(false);
       });
   }
 
