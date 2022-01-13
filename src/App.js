@@ -70,8 +70,9 @@ function App() {
       <hr />
       <Routes>
         <Route path="/" element={<Cards cities={cities} onClose={onClose} />} />
-        <Route path="/about" exact element={<About />} />
+        <Route path="/about" element={<About />} />
         <Route
+          exact
           path="/ciudad/:id"
           element={<Ciudad onFilter={onFilter} city={cities} />}
         />
