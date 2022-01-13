@@ -74,7 +74,7 @@ function App() {
         <Route
           exact
           path="/ciudad/:id"
-          element={<Ciudad onFilter={onFilter} city={cities} />}
+          element={<Ciudad onFilter={onFilter} />}
         />
       </Routes>
     </Router>
